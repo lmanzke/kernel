@@ -11,6 +11,7 @@ use Spryker\Shared\Kernel\Store;
 
 class BundleNameResolver
 {
+    protected $storeName;
     /**
      * @param string $bundleName
      *
@@ -33,6 +34,10 @@ class BundleNameResolver
      */
     protected function getStoreName()
     {
-        return Store::getInstance()->getStoreName();
+        if(!$this->storeName) {
+            $this->storeName = Store::getInstance()->getStoreName();
+        }
+
+        return $this->storeName;
     }
 }
