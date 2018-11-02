@@ -48,7 +48,7 @@ class ClassInfo
 
         if ($this->isFullyQualifiedClassName($callerClass)) {
             $callerClassParts = explode('\\', ltrim($callerClass, '\\'));
-            $callerClassParts = $this->adjustTestNamespace($callerClassParts);
+            //$callerClassParts = $this->adjustTestNamespace($callerClassParts);
         }
 
         $this->callerClassParts = $callerClassParts;
