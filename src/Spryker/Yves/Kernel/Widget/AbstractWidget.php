@@ -23,6 +23,7 @@ abstract class AbstractWidget implements WidgetInterface
     use ClientResolverAwareTrait;
     use BundleConfigResolverAwareTrait;
 
+    protected $locale;
     /**
      * @var array
      */
@@ -136,6 +137,10 @@ abstract class AbstractWidget implements WidgetInterface
      */
     protected function getLocale(): string
     {
-        return $this->getApplication()['locale'];
+        if(!$this->locale) {
+            $this->locale = $this->getApplication()['locale'];
+        }
+
+        return $this->locale;
     }
 }
